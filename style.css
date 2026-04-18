@@ -1,8 +1,6 @@
-/* =========================================
-   基本設定
-   ========================================= */
+/* 基本設定 */
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
     line-height: 1.6;
     color: #202122;
     background-color: #f6f6f6;
@@ -11,188 +9,161 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    background: #fff;
-    padding: 30px;
+    background-color: #fff;
+    padding: 40px;
     border: 1px solid #a2a9b1;
-    min-height: 100vh;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 h1 {
-    border-bottom: 1px solid #a2a9b1;
+    font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
     font-size: 1.8em;
-    margin-top: 0;
-    margin-bottom: 0.5em;
-    font-weight: normal;
-    font-family: serif;
+    border-bottom: 1px solid #a2a9b1;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
 }
 
-/* =========================================
-   概要（リード文）
-   ========================================= */
+/* インフォボックス（右側の基本情報） */
+.infobox {
+    float: right;
+    width: 300px;
+    background-color: #f8f9fa;
+    border: 1px solid #a2a9b1;
+    border-spacing: 3px;
+    margin: 0 0 1em 1em;
+    font-size: 88%;
+}
+
+.infobox th {
+    background-color: #eaecf0;
+    text-align: left;
+    width: 35%;
+    padding: 5px;
+}
+
+.infobox td {
+    padding: 5px;
+    vertical-align: middle;
+}
+
+/* 導入文 */
 .abstract {
     margin-bottom: 20px;
 }
 
-/* =========================================
-   基本情報ボックス（Infobox）
-   ========================================= */
-.infobox {
-    float: right;
-    width: 280px;
-    background: #f8f9fa;
-    border: 1px solid #a2a9b1;
-    border-spacing: 3px;
-    margin: 0 0 1em 1em;
-    font-size: 0.85em;
-}
-
-.infobox th {
-    background: #eaecf0;
-    text-align: left;
-    padding: 8px;
-    width: 35%;
-}
-
-.infobox td {
-    padding: 8px;
-    vertical-align: middle;
-}
-
-/* =========================================
-   画像配置（Wikipedia風）
-   ========================================= */
-
-/* 右寄せの画像（来歴など） */
-.thumb {
-    margin-bottom: 0.8em;
-    width: 220px; 
-    clear: right;
-}
-
-.tright {
-    float: right;
-    margin-left: 1.4em;
-}
-
-/* タイトルの下にくる画像（作品など） */
-.thumb-full {
-    margin: 10px 0 15px 0;
-    width: 100%;
-    clear: both;
-}
-
-.thumb img, .thumb-full img {
-    border: 1px solid #a2a9b1;
-    background-color: #f8f9fa;
-    padding: 3px;
-    width: 100%;
-    height: auto;
-    display: block;
-    box-sizing: border-box;
-}
-
-/* =========================================
-   アコーディオン（じゃばら）
-   ========================================= */
+/* アコーディオン設定 */
 .accordion-group {
     clear: both;
 }
 
 details {
     border: 1px solid #a2a9b1;
-    background: #f8f9fa;
-    margin-bottom: 2px;
+    background-color: #f8f9fa;
+    margin-bottom: 5px;
 }
 
 summary {
-    padding: 10px 12px;
+    padding: 10px;
     font-weight: bold;
     cursor: pointer;
-    background: #eaecf0;
-    list-style: none;
-    position: relative;
-    padding-left: 35px;
-    outline: none;
+    background-color: #eaecf0;
+    list-style: none; /* デフォルトの三角を消す（任意） */
 }
 
 summary::-webkit-details-marker {
     display: none;
 }
 
-/* カスタム矢印 */
-summary::before {
-    content: "";
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-left: 6px solid #202122;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-    transition: transform 0.2s ease;
-}
-
-details[open] summary::before {
-    transform: translateY(-50%) rotate(90deg);
-}
-
 .content {
-    padding: 15px;
-    background: #fff;
+    padding: 20px;
+    background-color: #fff;
     border-top: 1px solid #a2a9b1;
-    overflow: hidden;
 }
 
-/* =========================================
-   コンテンツ内要素
-   ========================================= */
-.content p {
-    margin: 0 0 1em 0;
-}
-
-.content p strong {
-    display: block;
-    margin-top: 1.2em;
-    margin-bottom: 0.4em;
-    color: #000;
-}
-
-/* 画像やタイトルの直後の太字余白を調整 */
-.content p:first-child strong,
-.content .thumb + p strong,
-.content .thumb-full + p strong {
-    margin-top: 0;
-}
-
-.content ul {
-    margin: 0;
-    padding-left: 1.5em;
-}
-
-.content li {
+/* 画像配置クラス（右側に小さく配置） */
+.thumb {
     margin-bottom: 0.5em;
+    display: block;
 }
 
-/* =========================================
-   レスポンシブ
-   ========================================= */
-@media (max-width: 640px) {
-    .container {
-        padding: 15px;
-    }
+.tright {
+    float: right;
+    clear: right;
+    margin-left: 1.4em;
+}
 
+.thumb img {
+    border: 1px solid #c8ccd1;
+    background-color: #f8f9fa;
+    padding: 3px;
+    height: auto;
+}
+
+/* 画像配置クラス（中央・全幅・大きく表示） */
+.thumb-full {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.thumb-full img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #c8ccd1;
+    padding: 3px;
+}
+
+/* 論文リンクボックス（グレーのホバーボックス） */
+.thesis-link {
+    display: block;
+    background-color: #f8f9fa;
+    border: 1px solid #eaecf0;
+    padding: 15px;
+    margin: 15px 0;
+    text-decoration: none;
+    color: #202122;
+    border-radius: 2px;
+    transition: background-color 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.thesis-link:hover {
+    background-color: #f0f0f0;
+    border-color: #a2a9b1;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    text-decoration: none;
+}
+
+.thesis-label {
+    font-weight: bold;
+    color: #54595d;
+    font-size: 0.85em;
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* リスト設定 */
+ul {
+    margin-top: 5px;
+    padding-left: 1.6em;
+}
+
+/* レスポンシブ調整 */
+@media screen and (max-width: 600px) {
     .infobox {
         float: none;
         width: 100%;
-        margin-left: 0;
-        margin-bottom: 20px;
+        margin: 0 0 1em 0;
     }
-
-    .thumb {
+    .tright {
         float: none;
-        margin: 0 auto 1em auto;
-        width: 100%;
+        margin: 0 auto 10px;
+        text-align: center;
+    }
+    .container {
+        padding: 15px;
     }
 }
+
