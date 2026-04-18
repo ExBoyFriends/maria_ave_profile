@@ -61,12 +61,14 @@ h1 {
 }
 
 /* =========================================
-   画像配置（Wikipedia風の挿絵）
+   画像配置（Wikipedia風）
    ========================================= */
+
+/* 右寄せの画像（来歴など） */
 .thumb {
     margin-bottom: 0.8em;
-    width: 220px; /* 標準的な挿絵サイズ */
-    clear: right; /* 右側の回り込みを連続させない */
+    width: 220px; 
+    clear: right;
 }
 
 .tright {
@@ -74,20 +76,28 @@ h1 {
     margin-left: 1.4em;
 }
 
-.thumb img {
+/* タイトルの下にくる画像（作品など） */
+.thumb-full {
+    margin: 10px 0 15px 0;
+    width: 100%;
+    clear: both;
+}
+
+.thumb img, .thumb-full img {
     border: 1px solid #a2a9b1;
     background-color: #f8f9fa;
     padding: 3px;
     width: 100%;
     height: auto;
     display: block;
+    box-sizing: border-box;
 }
 
 /* =========================================
    アコーディオン（じゃばら）
    ========================================= */
 .accordion-group {
-    clear: both; /* Infoboxや画像の回り込みをリセット */
+    clear: both;
 }
 
 details {
@@ -101,7 +111,7 @@ summary {
     font-weight: bold;
     cursor: pointer;
     background: #eaecf0;
-    list-style: none; /* デフォルトの矢印を非表示 */
+    list-style: none;
     position: relative;
     padding-left: 35px;
     outline: none;
@@ -111,7 +121,7 @@ summary::-webkit-details-marker {
     display: none;
 }
 
-/* カスタム矢印（三角形） */
+/* カスタム矢印 */
 summary::before {
     content: "";
     position: absolute;
@@ -132,11 +142,11 @@ details[open] summary::before {
     padding: 15px;
     background: #fff;
     border-top: 1px solid #a2a9b1;
-    overflow: hidden; /* 画像のはみ出し防止 */
+    overflow: hidden;
 }
 
 /* =========================================
-   コンテンツ内要素（段落・リスト・太字）
+   コンテンツ内要素
    ========================================= */
 .content p {
     margin: 0 0 1em 0;
@@ -149,9 +159,10 @@ details[open] summary::before {
     color: #000;
 }
 
-/* 最初の段落の太字は上に余白を作らない */
+/* 画像やタイトルの直後の太字余白を調整 */
 .content p:first-child strong,
-.content .thumb + p strong {
+.content .thumb + p strong,
+.content .thumb-full + p strong {
     margin-top: 0;
 }
 
@@ -165,7 +176,7 @@ details[open] summary::before {
 }
 
 /* =========================================
-   レスポンシブ（スマホ対応）
+   レスポンシブ
    ========================================= */
 @media (max-width: 640px) {
     .container {
@@ -182,6 +193,6 @@ details[open] summary::before {
     .thumb {
         float: none;
         margin: 0 auto 1em auto;
-        width: 100%; /* スマホでは横幅いっぱいに */
+        width: 100%;
     }
 }
