@@ -25,10 +25,10 @@ h1 {
     padding-bottom: 5px;
 }
 
-/* インフォボックス（右側の基本情報） */
+/* インフォボックス */
 .infobox {
     float: right;
-    width: 300px;
+    width: 260px; /* 少しスリムに */
     background-color: #f8f9fa;
     border: 1px solid #a2a9b1;
     border-spacing: 3px;
@@ -45,15 +45,9 @@ h1 {
 
 .infobox td {
     padding: 5px;
-    vertical-align: middle;
 }
 
-/* 導入文 */
-.abstract {
-    margin-bottom: 20px;
-}
-
-/* アコーディオン設定 */
+/* アコーディオン */
 .accordion-group {
     clear: both;
 }
@@ -69,11 +63,7 @@ summary {
     font-weight: bold;
     cursor: pointer;
     background-color: #eaecf0;
-    list-style: none; /* デフォルトの三角を消す（任意） */
-}
-
-summary::-webkit-details-marker {
-    display: none;
+    list-style: none;
 }
 
 .content {
@@ -82,39 +72,46 @@ summary::-webkit-details-marker {
     border-top: 1px solid #a2a9b1;
 }
 
-/* 画像配置クラス（右側に小さく配置） */
+/* --- 画像配置の修正 --- */
+
+/* 右側に回り込む画像（maria.webpなど） */
+.thumb.tright {
+    float: right;
+    clear: right;
+    margin: 0 0 10px 15px;
+    max-width: 220px; /* 横幅を制限 */
+}
+
+/* 文章の真下にくる画像（exbfs.webpなど） */
 .thumb {
-    margin-bottom: 0.5em;
+    margin: 15px 0;
     display: block;
 }
 
-.tright {
-    float: right;
-    clear: right;
-    margin-left: 1.4em;
-}
-
 .thumb img {
+    max-width: 100%; /* 親要素の幅を超えない */
+    width: 220px;    /* 基本はこのサイズ */
+    height: auto;
     border: 1px solid #c8ccd1;
     background-color: #f8f9fa;
     padding: 3px;
-    height: auto;
 }
 
-/* 画像配置クラス（中央・全幅・大きく表示） */
+/* 特別に大きく見せたい画像用（詩やデジタルアート） */
 .thumb-full {
-    margin: 15px 0;
-    text-align: center;
+    margin: 20px 0;
+    text-align: left;
 }
 
 .thumb-full img {
-    max-width: 100%;
+    max-width: 600px; /* 最大でもこのサイズに抑える */
+    width: 100%;
     height: auto;
     border: 1px solid #c8ccd1;
     padding: 3px;
 }
 
-/* 論文リンクボックス（グレーのホバーボックス） */
+/* 論文リンクボックス */
 .thesis-link {
     display: block;
     background-color: #f8f9fa;
@@ -124,14 +121,13 @@ summary::-webkit-details-marker {
     text-decoration: none;
     color: #202122;
     border-radius: 2px;
-    transition: background-color 0.2s, box-shadow 0.2s, border-color 0.2s;
+    transition: background-color 0.2s;
 }
 
 .thesis-link:hover {
     background-color: #f0f0f0;
     border-color: #a2a9b1;
     box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    text-decoration: none;
 }
 
 .thesis-label {
@@ -140,30 +136,14 @@ summary::-webkit-details-marker {
     font-size: 0.85em;
     display: block;
     margin-bottom: 5px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
-/* リスト設定 */
-ul {
-    margin-top: 5px;
-    padding-left: 1.6em;
-}
-
-/* レスポンシブ調整 */
+/* レスポンシブ */
 @media screen and (max-width: 600px) {
-    .infobox {
+    .infobox, .thumb.tright {
         float: none;
         width: 100%;
-        margin: 0 0 1em 0;
-    }
-    .tright {
-        float: none;
-        margin: 0 auto 10px;
-        text-align: center;
-    }
-    .container {
-        padding: 15px;
+        max-width: 100%;
+        margin: 10px 0;
     }
 }
-
