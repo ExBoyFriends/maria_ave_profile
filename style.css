@@ -82,6 +82,14 @@ summary {
     max-width: 220px;
 }
 
+/* 左側に回り込む画像 (NEW) */
+.thumb.tleft {
+    float: left;
+    clear: left;
+    margin: 0 15px 10px 0;
+    max-width: 220px;
+}
+
 /* 文章の下にくる標準的な画像 */
 .thumb {
     margin: 15px 0;
@@ -161,7 +169,8 @@ summary {
         margin: 0 0 15px 0;
     }
 
-    .thumb.tright {
+    /* 左右の回り込みを解除 */
+    .thumb.tright, .thumb.tleft {
         float: none;
         margin: 10px auto;
         text-align: center;
