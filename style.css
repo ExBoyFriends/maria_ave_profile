@@ -1,4 +1,6 @@
-/* 基本設定 */
+/* =========================================
+   基本設定
+   ========================================= */
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
     line-height: 1.6;
@@ -26,12 +28,16 @@ h1 {
     font-family: serif;
 }
 
-/* 概要セクション（固定表示） */
+/* =========================================
+   概要（リード文）
+   ========================================= */
 .abstract {
     margin-bottom: 20px;
 }
 
-/* 基本情報ボックス（Infobox） */
+/* =========================================
+   基本情報ボックス（Infobox）
+   ========================================= */
 .infobox {
     float: right;
     width: 280px;
@@ -54,9 +60,34 @@ h1 {
     vertical-align: middle;
 }
 
-/* アコーディオン（じゃばら）スタイル */
+/* =========================================
+   画像配置（Wikipedia風の挿絵）
+   ========================================= */
+.thumb {
+    margin-bottom: 0.8em;
+    width: 220px; /* 標準的な挿絵サイズ */
+    clear: right; /* 右側の回り込みを連続させない */
+}
+
+.tright {
+    float: right;
+    margin-left: 1.4em;
+}
+
+.thumb img {
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    padding: 3px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* =========================================
+   アコーディオン（じゃばら）
+   ========================================= */
 .accordion-group {
-    clear: both;
+    clear: both; /* Infoboxや画像の回り込みをリセット */
 }
 
 details {
@@ -70,16 +101,17 @@ summary {
     font-weight: bold;
     cursor: pointer;
     background: #eaecf0;
-    list-style: none;
+    list-style: none; /* デフォルトの矢印を非表示 */
     position: relative;
     padding-left: 35px;
+    outline: none;
 }
 
 summary::-webkit-details-marker {
     display: none;
 }
 
-/* 矢印アイコン */
+/* カスタム矢印（三角形） */
 summary::before {
     content: "";
     position: absolute;
@@ -100,9 +132,12 @@ details[open] summary::before {
     padding: 15px;
     background: #fff;
     border-top: 1px solid #a2a9b1;
+    overflow: hidden; /* 画像のはみ出し防止 */
 }
 
-/* コンテンツ内の段落・リスト調整 */
+/* =========================================
+   コンテンツ内要素（段落・リスト・太字）
+   ========================================= */
 .content p {
     margin: 0 0 1em 0;
 }
@@ -114,7 +149,9 @@ details[open] summary::before {
     color: #000;
 }
 
-.content p:first-child strong {
+/* 最初の段落の太字は上に余白を作らない */
+.content p:first-child strong,
+.content .thumb + p strong {
     margin-top: 0;
 }
 
@@ -127,16 +164,24 @@ details[open] summary::before {
     margin-bottom: 0.5em;
 }
 
-/* レスポンシブ */
+/* =========================================
+   レスポンシブ（スマホ対応）
+   ========================================= */
 @media (max-width: 640px) {
+    .container {
+        padding: 15px;
+    }
+
     .infobox {
         float: none;
         width: 100%;
         margin-left: 0;
         margin-bottom: 20px;
     }
-    
-    .container {
-        padding: 15px;
+
+    .thumb {
+        float: none;
+        margin: 0 auto 1em auto;
+        width: 100%; /* スマホでは横幅いっぱいに */
     }
 }
