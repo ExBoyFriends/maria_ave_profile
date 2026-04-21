@@ -25,6 +25,14 @@ h1 {
     padding-bottom: 5px;
 }
 
+/* 画像保護設定 (NEW) */
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    pointer-events: none; /* これで完全ガード */
+}
+
 /* インフォボックス */
 .infobox {
     float: right;
@@ -43,83 +51,31 @@ h1 {
     padding: 5px;
 }
 
-.infobox td {
-    padding: 5px;
-}
+.infobox td { padding: 5px; }
 
 /* アコーディオン */
-.accordion-group {
-    clear: both;
-}
+.accordion-group { clear: both; }
+details { border: 1px solid #a2a9b1; background-color: #f8f9fa; margin-bottom: 5px; }
+summary { padding: 10px; font-weight: bold; cursor: pointer; background-color: #eaecf0; list-style: none; }
+.content { padding: 20px; background-color: #fff; border-top: 1px solid #a2a9b1; }
 
-details {
-    border: 1px solid #a2a9b1;
-    background-color: #f8f9fa;
-    margin-bottom: 5px;
-}
-
-summary {
-    padding: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: #eaecf0;
-    list-style: none;
-}
-
-.content {
-    padding: 20px;
-    background-color: #fff;
-    border-top: 1px solid #a2a9b1;
-}
-
-/* --- 画像配置 --- */
-
-/* 右側に回り込む画像 */
-.thumb.tright {
-    float: right;
-    clear: right;
-    margin: 0 0 10px 15px;
-    max-width: 220px;
-}
-
-/* 左側に回り込む画像 (NEW) */
-.thumb.tleft {
-    float: left;
-    clear: left;
-    margin: 0 15px 10px 0;
-    max-width: 220px;
-}
-
-/* 文章の下にくる標準的な画像 */
-.thumb {
-    margin: 15px 0;
-    display: block;
-}
-
+/* 画像配置 */
+.thumb.tright { float: right; clear: right; margin: 0 0 10px 15px; max-width: 220px; }
+.thumb.tleft { float: left; clear: left; margin: 0 15px 10px 0; max-width: 220px; }
+.thumb { margin: 15px 0; display: block; }
 .thumb img {
     max-width: 100%;
-    width: 220px; /* デスクトップでの基本サイズ */
+    width: 220px;
     height: auto;
     border: 1px solid #c8ccd1;
     background-color: #f8f9fa;
     padding: 3px;
 }
 
-/* 作品紹介などの大きな画像 */
-.thumb-full {
-    margin: 20px 0;
-    text-align: left;
-}
+.thumb-full { margin: 20px 0; text-align: left; }
+.thumb-full img { max-width: 800px; width: 100%; height: auto; border: 1px solid #c8ccd1; padding: 3px; }
 
-.thumb-full img {
-    max-width: 800px;
-    width: 100%;
-    height: auto;
-    border: 1px solid #c8ccd1;
-    padding: 3px;
-}
-
-/* 論文リンクボックス */
+/* 論文リンク */
 .thesis-link {
     display: block;
     background-color: #f8f9fa;
@@ -129,60 +85,18 @@ summary {
     text-decoration: none;
     color: #202122;
     border-radius: 2px;
-    transition: background-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s;
 }
+.thesis-link:hover { background-color: #f0f0f0; border-color: #a2a9b1; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+.thesis-label { font-weight: bold; color: #54595d; font-size: 0.85em; display: block; margin-bottom: 5px; }
 
-.thesis-link:hover {
-    background-color: #f0f0f0;
-    border-color: #a2a9b1;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    text-decoration: none;
-}
-
-.thesis-label {
-    font-weight: bold;
-    color: #54595d;
-    font-size: 0.85em;
-    display: block;
-    margin-bottom: 5px;
-}
-
-/* --- レスポンシブ調整 --- */
+/* レスポンシブ */
 @media screen and (max-width: 600px) {
-    body {
-        padding: 5px;
-    }
-
-    .container {
-        padding: 15px;
-        border-width: 1px 0;
-    }
-
-    h1 {
-        font-size: 1.5em;
-        margin-top: 10px;
-    }
-
-    .infobox {
-        float: none;
-        width: 100%;
-        margin: 0 0 15px 0;
-    }
-
-    /* 左右の回り込みを解除 */
-    .thumb.tright, .thumb.tleft {
-        float: none;
-        margin: 10px auto;
-        text-align: center;
-        max-width: 100%;
-    }
-
-    .thumb img {
-        width: 100%; /* スマホでは横幅いっぱいに広げる */
-        max-width: none;
-    }
-
-    .thesis-link {
-        padding: 12px;
-    }
+    body { padding: 5px; }
+    .container { padding: 15px; border-width: 1px 0; }
+    h1 { font-size: 1.5em; margin-top: 10px; }
+    .infobox { float: none; width: 100%; margin: 0 0 15px 0; }
+    .thumb.tright, .thumb.tleft { float: none; margin: 10px auto; text-align: center; max-width: 100%; }
+    .thumb img { width: 100%; max-width: none; }
+    .thesis-link { padding: 12px; }
 }
